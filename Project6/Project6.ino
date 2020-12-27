@@ -29,4 +29,6 @@ void setup()
 
 void loop()
 {
+   sensorValue = analogRead(A0);
+   int pitch = map(sensorValue, sensorLow, sensorHigh, 50, 4000);
 }
