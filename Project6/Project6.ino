@@ -7,24 +7,26 @@ const int ledPin = 13;
 
 void setup()
 {
-  // put your setup code here, to run once:
- pinMode(ledPin, OUTPUT);
- digitalWrite(ledPin, HIGH);
+   // put your setup code here, to run once:
+   pinMode(ledPin, OUTPUT);
+   digitalWrite(ledPin, HIGH);
 
- while(millis() < 5000){
-     sensorValue = analogRead(A0);
-     if(sensorValue > sensorHigh){
-        sensorHigh = sensorValue; 
-     }
+   while (millis() < 5000)
+   {
+      sensorValue = analogRead(A0);
+      if (sensorValue > sensorHigh)
+      {
+         sensorHigh = sensorValue;
+      }
 
-     if(sensorValue < sensorLow){
-        sensorLow = sensorValue; 
-     }
-     digitalWrite(ledPin, LOW);
- }
+      if (sensorValue < sensorLow)
+      {
+         sensorLow = sensorValue;
+      }
+      digitalWrite(ledPin, LOW);
+   }
 }
 
 void loop()
 {
-  
 }
