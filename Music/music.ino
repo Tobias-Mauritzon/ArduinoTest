@@ -29,13 +29,18 @@ int songTempE[] = {};
 
 void setup()
 {
-    pinMode(8, OUTPUT);
+   Serial.begin(9600);
 }
 
 void loop()
 {  
     for (byte i = 0; i < (sizeof(songG) / sizeof(songG[0])); i++){
-        tone(8, songG[i], songTempG[i]);
+        tone(8, songG[i]);
+        Serial.print(songG[i]);
+        Serial.print("  ");
+        Serial.println(songTempG[i]);
+        delay(songTempG[i]);
+        noTone(8);
         delay(10);
     }
     delay(5000);
