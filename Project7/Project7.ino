@@ -9,7 +9,7 @@ void setup(){
 
 void loop(){
     int keyVal = analogRead(A0);
-    Serial.print(keyVal);
+    Serial.println(keyVal);
 
     if (keyVal == 1023){
         tone(8, notes[0]);
