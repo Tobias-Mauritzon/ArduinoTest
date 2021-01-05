@@ -55,12 +55,12 @@ void setup()
 void loop()
 {  
     for (byte i = 0; i < (sizeof(songJ) / sizeof(songJ[0])); i++){
-        tone(8, songJ[i]);
+        tone(12, songJ[i]);
         Serial.print(songJ[i]);
         Serial.print("  ");
         Serial.println(songTempJ[i]);
         delay(songTempJ[i]);
-        noTone(8);
+        noTone(12);
         delay(10);
     }
     delay(5000);
