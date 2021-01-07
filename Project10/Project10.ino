@@ -14,7 +14,7 @@ int motorEnabled = 0;
 int motorSpeed = 0;
 int motorDirection = 1;
 
-void Setup(){
+void setup(){
     pinMode(directionSwitchPin, INPUT);
     pinMode(onOffSwitchStateSwitchPin, INPUT);
     pinMode(controlPin1, OUTPUT);
