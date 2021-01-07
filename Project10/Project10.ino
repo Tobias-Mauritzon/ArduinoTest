@@ -29,4 +29,34 @@ void loop(){
     delay(1);
     directionSwitchState = digitalRead(directionSwitchPin);
     motorSpeed = analogRead(potPin)/4;
+    
+    if(onOffSwitchState != previousOnOffSwitchState){
+        if(motorSpeed == HIGH){
+            motorEnabled = !motorEnabled;
+        }
+    }
+
+    if(directionSwitchState != previusDirectionSwitchState){
+        if(directionSwitchState == HIGH){
+            motorDirection = !motorDirection;
+        }
+    }
+
+    if(motorDirection == 1){
+        digitalWrite(controlPin1, HIGH);
+        digitalWrite(controlPin2, LOW);
+    }else{
+        digitalWrite(controlPin1, LOW);
+        digitalWrite(controlPin2, HIGH);
+    }
+
+    if(motorEnabled == 1){
+        analogWrite(enablePin, motorSpeed);
+    }else{
+        analogWrite(enablePin, 0);
+    }
+
+    previusDirectionSwitchState = directionSwitchState;
+
+    previousOnOffSwitchState = onOffSwitchState;
 }
