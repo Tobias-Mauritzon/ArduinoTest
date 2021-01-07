@@ -31,7 +31,7 @@ void loop(){
     motorSpeed = analogRead(potPin)/4;
     
     if(onOffSwitchState != previousOnOffSwitchState){
-        if(motorSpeed == HIGH){
+        if(onOffSwitchState == HIGH){
             motorEnabled = !motorEnabled;
         }
     }
