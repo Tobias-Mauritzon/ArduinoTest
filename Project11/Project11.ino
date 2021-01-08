@@ -16,5 +16,31 @@ void setup(){
 }
 
 void loop(){
-   
+   switchState = digitalRead(switchPin);
+
+   if(switchState != prevSwitchState){
+       if(switchState == LOW){
+           reply = random(3);
+           lcd.clear();
+           lcd.setCursor(0,0);
+           lcd.print("The ball says:");
+           lcd.setCursor(0,1);
+
+           switch(reply){
+               case 0:
+               lcd.print("Yes");
+               break;
+               case 1:
+               lcd.print("Most likely");
+               break;
+               case 2:
+               lcd.print("Certainly");
+               break;
+               case 3:
+               lcd.print("Unsure");
+               break;
+           }
+       }
+   }
+   prevSwitchState = switchState;
 }
