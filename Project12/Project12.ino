@@ -18,6 +18,7 @@ void setup(){
     pinMode(redLed,OUTPUT);
     pinMode(greenLed,OUTPUT);
     pinMode(switchPin,INPUT);
+    Serial.begin(9600);
 
     digitalWrite(greenLed, HIGH);
     myServo.write(0);
@@ -37,6 +38,9 @@ void loop(){
 
     if(locked == true){
         knockVal = analogRead(piezo);
+        delay(10);
+        Serial.println(knockVal);
+        delay(10);
         if(numberOfKnocks < 3 && knockVal > 0){
             if(checkForKnocks(knockVal) == true){
                 numberOfKnocks++;
