@@ -4,6 +4,7 @@ void setup(){
 }
 
 void loop(){
-    Serial.write(analogRead(A0)/4);
-    delay(100);
+    Serial.print("Potential: ");
+    Serial.println(analogRead(A0)/4);
+    delay(1000);
 }
