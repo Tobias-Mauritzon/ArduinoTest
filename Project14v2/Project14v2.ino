@@ -14,13 +14,13 @@ void loop(){
 
     if(val < 125 && val > 0){
         digitalWrite(yellowLed, HIGH);
-        digitalWrite(yellowLed, LOW);
+        digitalWrite(greenLed, LOW);
     }else if(val >= 125){
         digitalWrite(yellowLed, LOW);
-        digitalWrite(yellowLed, HIGH);
+        digitalWrite(greenLed, HIGH);
     }else{
         digitalWrite(yellowLed, HIGH);
-        digitalWrite(yellowLed, HIGH);
+        digitalWrite(greenLed, HIGH);
     }
     delay(1000);
 }
