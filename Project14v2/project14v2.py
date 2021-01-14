@@ -1,13 +1,13 @@
 import serial
 import time
 
-ser = serial.Serial('COM3', 9600)
+ser = serial.Serial('COM3', 9600) # Remember to close other conections to the port
 time.sleep(2)
 
-data = []                           # empty list to store the data
-for i in range(50):
+data = [] 
+                        # empty list to store the data
+for i in range(5):
     b = ser.readline()              # read a byte string
-    print(b)
     string_n = b.decode()           # decode byte string into Unicode  
     string = string_n.rstrip()      # remove \n and \r 
     print(string)
@@ -16,6 +16,7 @@ for i in range(50):
 
 ser.close()
 
+print("------------")
 
 for line in data:
     print(line)
