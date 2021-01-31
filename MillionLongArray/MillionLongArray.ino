@@ -3,6 +3,11 @@
 *   What would happen if i make an array with one million elements and 
 *   fill it with chars or maybe integers and do something with the numbers,
 *   will arduino run the code.
+*   
+*   Update there is not enough dynamic memory but i can hard code it
+*   if i use chars or booleans.
+*   
+*   It could have maybe worked if there was a bit type.
 */
 
 // intit array
@@ -18,8 +23,9 @@ void setup()
     // fills the array
     char c; 
     for(int i = 0; i < 1000000; i++){
-        c = (rand() % 3) + 1;
-        arr[i] = c; 
+        c = (rand() % 2 + 1);
+        arr[i] = c;
+
     }
 
     // init pins
