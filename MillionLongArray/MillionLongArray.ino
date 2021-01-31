@@ -30,7 +30,10 @@ void setup()
 
 void loop()
 {
+    //Loop through the array and light a led acording to pin
+    
     for(char c : arr){
+        // Maybe i should add a delay here
         if(c == pinGreen){
             Serial.println("Green Pin: "+c);
         }else if(c == pinRed){
