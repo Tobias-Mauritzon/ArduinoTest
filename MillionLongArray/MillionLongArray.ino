@@ -11,7 +11,8 @@
 */
 
 // intit array
-char arr[1000000];
+// 1000 long is close to max size
+char arr[1000];
 
 // output pins;
 int pinGreen = 1;
@@ -20,9 +21,11 @@ int pinYellow = 3;
 
 void setup()
 {
+
+
     // fills the array
     char c; 
-    for(int i = 0; i < 1000000; i++){
+    for(int i = 0; i < 1000; i++){
         c = (rand() % 2 + 1);
         arr[i] = c;
 
