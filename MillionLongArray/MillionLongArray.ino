@@ -50,8 +50,12 @@ void loop()
     for(char c : arr){
         //Read potentiometer for new daly
         sensorValue = analogRead(potentiometer);
+
+        //Sets new delay but something is wrong here
         if(potentiometer > 10){
             loopDelay = sensorValue;
+        }else{
+            loopDelay = 10;
         }
         
         
