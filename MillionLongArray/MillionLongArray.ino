@@ -1,4 +1,4 @@
-
+#include <CapacitiveSensor.h>
 /*
 *   What would happen if i make an array with one million elements and 
 *   fill it with chars or maybe integers and do something with the numbers,
@@ -22,6 +22,10 @@ int pinYellow = 4;
 int potentiometer = A0;
 int sensorValue = 0;
 int loopDelay = 10;
+
+//Capacity sensor and minimum threshold
+CapacitiveSensor capSensor = CapacitiveSensor(7,2);
+int threshold = 1000;
 
 void setup()
 {
@@ -48,6 +52,22 @@ void loop()
     //Loop through the array and light a led acording to pin
     
     for(char c : arr){
+        //Read cap sensor value
+        long capSensorValue = capSensor.capacitiveSensor(30);
+        
+        //turn of leds and poll wait until capsensor notis
+        while (capSensorValue < threshold)
+        {
+            digitalWrite(pinGreen,LOW);
+            digitalWrite(pinRed,LOW);
+            digitalWrite(pinYellow,LOW);
+
+            delay(1000);
+            
+            capSensorValue = capSensor.capacitiveSensor(30);
+        }
+        
+
         //Read potentiometer for new daly
         sensorValue = analogRead(potentiometer);
 
