@@ -72,10 +72,10 @@ void loop()
         sensorValue = analogRead(potentiometer);
 
         //Sets new delay but something is wrong here
-        if(potentiometer > 10){
+        if(potentiometer > 50){
             loopDelay = sensorValue;
         }else{
-            loopDelay = 10;
+            loopDelay = 50;
         }
         
         
