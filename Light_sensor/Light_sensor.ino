@@ -42,7 +42,7 @@ void loop() {
     angle = 0;
     digitalWrite(ledPin, LOW);
   }
-  else if (leftVal > rightVal && leftVal > rightVal && leftVal > bottomVal){
+  else if (leftVal > rightVal && leftVal > topVal && leftVal > bottomVal){
     angle = 179;
     digitalWrite(ledPin, LOW);
   }else{
@@ -50,12 +50,18 @@ void loop() {
     digitalWrite(ledPin, HIGH);
   }
 
-  Serial.println("Angle: "+angle);
-  Serial.println("");
-  Serial.print("TopVal: "+topVal);
-  Serial.print("RightVal: "+rightVal);
-  Serial.print("LeftVal: "+leftVal);
-  Serial.print("BottomVal: "+bottomVal);
+  Serial.print("Angle: ");
+  Serial.println(angle);
+  
+  Serial.print("TopVal: ");
+  Serial.print(topVal);
+  
+  Serial.print(" RightVal: ");
+  Serial.print(rightVal);
+  Serial.print(" LeftVal: ");
+  Serial.print(leftVal);
+  Serial.print(" BottomVal: ");
+  Serial.println(bottomVal);
   myServo.write(angle);
   delay(1000);
 }
