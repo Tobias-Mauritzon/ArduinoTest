@@ -34,25 +34,28 @@ void loop() {
   leftVal = analogRead(photoLeft);
   bottomVal = analogRead(photoBottom);
 
-  angle = map(, 0, 1023, 0, 179);
-
-  if (topVal > (rightVal && leftVal && bottomVal)){
+  if (topVal > rightVal && topVal > leftVal && topVal > bottomVal){
     angle = 89;
     digitalWrite(ledPin, LOW);
   }
-  else if (rightVal > (topVal && leftVal && bottomVal)){
+  else if (rightVal > topVal && rightVal > leftVal && rightVal > bottomVal){
     angle = 0;
     digitalWrite(ledPin, LOW);
   }
-  else if (leftVal > (rightVal && rightVal && bottomVal)){
+  else if (leftVal > rightVal && leftVal > rightVal && leftVal > bottomVal){
     angle = 179;
     digitalWrite(ledPin, LOW);
   }else{
-    angle = abs(angle - 45) ;
+    angle = 45 ;
     digitalWrite(ledPin, HIGH);
   }
 
-  Serial.println(angle);
+  Serial.println("Angle: "+angle);
+  Serial.println("");
+  Serial.print("TopVal: "+topVal);
+  Serial.print("RightVal: "+rightVal);
+  Serial.print("LeftVal: "+leftVal);
+  Serial.print("BottomVal: "+bottomVal);
   myServo.write(angle);
-  delay(50);
+  delay(1000);
 }
