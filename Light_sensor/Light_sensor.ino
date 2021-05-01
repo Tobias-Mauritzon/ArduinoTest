@@ -46,8 +46,10 @@ void loop() {
     angle = 179;
     digitalWrite(ledPin, LOW);
   }else{
-    angle = 45 ;
-    digitalWrite(ledPin, HIGH);
+    if(!(angle == 44)){
+      angle = 44;  
+      digitalWrite(ledPin, HIGH);
+    }
   }
 
   Serial.print("Angle: ");
